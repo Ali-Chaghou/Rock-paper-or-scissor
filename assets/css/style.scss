@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:wght@500&display=swap');
+//variabl
+$fontFamily-Lato:'Lato' sans-serif;
+$fontFamily-andada:'Andada Pro' serif;
+$transition: all 3s ease-in-out .25ms;
+$whitecolor: #fff;
+$black-color: #444;
+$bg-color-body: #24272e;
+$link-color: #ffcc99;
+$link-color-hover: #ffba76;
+$user-and-comp-color: #e2584d;
+$winStyles-border: #4dcc7d;
+$winStyles-bg-and-shadow: #043507;
+$loseStyles-border: #c52e2e;
+$loseStyles-bg-and-shadow: #2e0303;
+$draw-style: #222;
+$sub-color: #d50b3a;
+$sub-green: #009f20;
+//wildcard selector
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Vererbung oder erweiterungen = extend
+%flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+%score-board-absolute {
+    position: absolute;
+    top: 50%;
+}
+
+%header-h1-p {
+    color: $black-color;
+    font-weight: 400;
+}
+
+%board {
+    border: 4px solid $whitecolor;
+    width: 400px;
+    margin: 40px auto;
+    font-size: 3em;
+    padding: 1em 2em;
+}
+
+//start
+body {
+    font-family: $fontFamily-andada;
+    background-color: $bg-color-body;
+    color: $whitecolor;
+    @extend %flex;
+    flex-direction: column
+}
+
+header {
+    @extend %flex;
+    flex-direction: column;
+    background-color: $whitecolor;
+    width: 100%;
+    h1 {
+        @extend %header-h1-p;
+    }
+    p {
+        @extend %header-h1-p;
+        font-size: 1.5em;
+        text-align: center;
+        padding: 0 5em;
+        line-height: 150%;
+        margin-bottom: 20px;
+    }
+}
+
+.score-board {
+    @extend %flex;
+    flex-direction: column;
+    @extend %board;
+    position: relative;
+    .badge {
+        font-size: .5em;
+        padding: 5px;
+        background: $user-and-comp-color;
+        text-transform: uppercase;
+    }
+    [id="user-label"] {
+        @extend %score-board-absolute;
+        left: -5%;
+        transform: translate(-10%, -50%);
+    }
+    [id="computer-label"] {
+        @extend %score-board-absolute;
+        right: -5%;
+        transform: translate(10%, -50%);
+    }
+}
+
+.definition {
+    font-family: $fontFamily-andada;
+    font-size: 3em;
+    line-height: 1.5em;
+}
+
+section {
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 0;
+    .choice {
+        display: inline-block;
+        border: 8px double #fff;
+        border-radius: 50%;
+        padding: 12px;
+        margin: auto 20px;
+        transition: all 0.3s ease;
+        i {
+            padding: 20px;
+            font-size: 2em
+        }
+    }
+    .message {
+        @extend %flex;
+        flex-direction: column;
+        p {
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0 0 0;
+            a {
+                font-size: 18px;
+                text-transform: lowercase;
+                font-family: $fontFamily-Lato;
+                color: $link-color;
+                &:hover {
+                    color: $link-color-hover;
+                }
+            }
+        }
+    }
+}
+
+// Winning condition 
+.winningStyles {
+    border: 3px solid $winStyles-border;
+    background-color: $winStyles-bg-and-shadow;
+    box-shadow: 0 0 20px $winStyles-bg-and-shadow;
+    transition: $transition;
+}
+
+.losingStyles {
+    border: 3px solid $loseStyles-border;
+    background-color: $loseStyles-bg-and-shadow;
+    box-shadow: 0 0 20px $loseStyles-bg-and-shadow;
+    transition: $transition;
+}
+
+.drawStyles {
+    border: 3px solid $black-color;
+    background-color: $link-color;
+    box-shadow: 0 0 20px $draw-style;
+    transition: $transition;
+}
+
+sup {
+    color: $sub-color;
+}
+
+.sup-green {
+    color: $sub-green;
+}
+
+@media (max-width: 576px) {
+    header p {
+        padding: 0 1em;
+    }
+    .definition {
+        font-size: 1.5em;
+    }
+    section .choice {
+        padding: 4px;
+    }
+    .score-board,
+    form {
+        width: 300px;
+        font-size: 2em;
+    }
+    .score-board [id=user-label] {
+        transform: translate(-30%, -50%);
+    }
+    .score-board [id=computer-label] {
+        transform: translate(10%, -50%);
+    }
+    section .choice i {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    header p {
+        padding: 0 1.5em;
+    }
+    .definition {
+        font-size: 2em;
+    }
+    section .choice {
+        padding: 6px;
+    }
+    .score-board,
+    form {
+        width: 350px;
+        font-size: 2.5em;
+    }
+    .score-board [id=user-label] {
+        transform: translate(-20%, -50%);
+    }
+    .score-board [id=computer-label] {
+        transform: translate(20%, -50%);
+    }
+    section .choice i {
+        font-size: 1.5em;
+    }
+}

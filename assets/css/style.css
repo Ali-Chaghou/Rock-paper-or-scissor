@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro:wght@500&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+section .message, .score-board, header, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-board [id=computer-label], .score-board [id=user-label] {
+  position: absolute;
+  top: 50%;
+}
+
+header p, header h1 {
+  color: #444;
+  font-weight: 400;
+}
+
+.score-board {
+  border: 4px solid #fff;
+  width: 400px;
+  margin: 40px auto;
+  font-size: 3em;
+  padding: 1em 2em;
+}
+
+body {
+  font-family: "Andada Pro" serif;
+  background-color: #24272e;
+  color: #fff;
+  flex-direction: column;
+}
+
+header {
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+}
+header p {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 0 5em;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+
+.score-board {
+  flex-direction: column;
+  position: relative;
+}
+.score-board .badge {
+  font-size: 0.5em;
+  padding: 5px;
+  background: #e2584d;
+  text-transform: uppercase;
+}
+.score-board [id=user-label] {
+  left: -5%;
+  transform: translate(-10%, -50%);
+}
+.score-board [id=computer-label] {
+  right: -5%;
+  transform: translate(10%, -50%);
+}
+
+.definition {
+  font-family: "Andada Pro" serif;
+  font-size: 3em;
+  line-height: 1.5em;
+}
+
+section {
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 0;
+}
+section .choice {
+  display: inline-block;
+  border: 8px double #fff;
+  border-radius: 50%;
+  padding: 12px;
+  margin: auto 20px;
+  transition: all 0.3s ease;
+}
+section .choice i {
+  padding: 20px;
+  font-size: 2em;
+}
+section .message {
+  flex-direction: column;
+}
+section .message p {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 40px 0 0 0;
+}
+section .message p a {
+  font-size: 18px;
+  text-transform: lowercase;
+  font-family: "Lato" sans-serif;
+  color: #ffcc99;
+}
+section .message p a:hover {
+  color: #ffba76;
+}
+
+.winningStyles {
+  border: 3px solid #4dcc7d;
+  background-color: #043507;
+  box-shadow: 0 0 20px #043507;
+  transition: all 3s ease-in-out 0.25ms;
+}
+
+.losingStyles {
+  border: 3px solid #c52e2e;
+  background-color: #2e0303;
+  box-shadow: 0 0 20px #2e0303;
+  transition: all 3s ease-in-out 0.25ms;
+}
+
+.drawStyles {
+  border: 3px solid #444;
+  background-color: #ffcc99;
+  box-shadow: 0 0 20px #222;
+  transition: all 3s ease-in-out 0.25ms;
+}
+
+sup {
+  color: #d50b3a;
+}
+
+.sup-green {
+  color: #009f20;
+}
+
+@media (max-width: 576px) {
+  header p {
+    padding: 0 1em;
+  }
+
+  .definition {
+    font-size: 1.5em;
+  }
+
+  section .choice {
+    padding: 4px;
+  }
+
+  .score-board,
+form {
+    width: 300px;
+    font-size: 2em;
+  }
+
+  .score-board [id=user-label] {
+    transform: translate(-30%, -50%);
+  }
+
+  .score-board [id=computer-label] {
+    transform: translate(10%, -50%);
+  }
+
+  section .choice i {
+    font-size: 1em;
+  }
+}
+@media (max-width: 768px) {
+  header p {
+    padding: 0 1.5em;
+  }
+
+  .definition {
+    font-size: 2em;
+  }
+
+  section .choice {
+    padding: 6px;
+  }
+
+  .score-board,
+form {
+    width: 350px;
+    font-size: 2.5em;
+  }
+
+  .score-board [id=user-label] {
+    transform: translate(-20%, -50%);
+  }
+
+  .score-board [id=computer-label] {
+    transform: translate(20%, -50%);
+  }
+
+  section .choice i {
+    font-size: 1.5em;
+  }
+}/*# sourceMappingURL=style.css.map */
