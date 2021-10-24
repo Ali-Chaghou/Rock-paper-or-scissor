@@ -1,12 +1,12 @@
 {
-    "theme_color": "#e7c09d",
-    "background_color": "#c0bce4",
+    "theme_color": "#7e7165",
+    "background_color": "#b4aca4",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/index.html",
     "name": "Rock, Paper, or Scissors",
-    "description": "Ein Dampfbetriebener Bot fordert dich zu einem Spiel heraus",
-    "short_name": "Rock, Paper, or Scissors",
+    "short_name": "Rock, Paper, or Scissors Designed by Ali",
+    "description": "Rock, Paper, or Scissors game ",
     "icons": [
         {
             "src": "/icon-192x192.png",

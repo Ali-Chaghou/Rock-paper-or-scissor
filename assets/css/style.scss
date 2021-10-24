@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Andada+Pro:wght@500&display=swap');
 //variabl
-$fontFamily-Lato:'Lato' sans-serif;
-$fontFamily-andada:'Andada Pro' serif;
+$fontFamily-Lato:'Lato',
+sans-serif;
+$fontFamily-andada:'Andada Pro',
+sans-serif;
 $transition: all 3s ease-in-out .25ms;
 $whitecolor: #fff;
 $black-color: #444;
@@ -53,7 +55,7 @@ $sub-green: #009f20;
     width: 400px;
     margin: 40px auto;
     font-size: 3em;
-    padding: 1em 2em;
+    padding: .5em;
 }
 
 //start
@@ -72,6 +74,8 @@ header {
     width: 100%;
     h1 {
         @extend %header-h1-p;
+        line-height: 200%;
+        font-weight: 100;
     }
     p {
         @extend %header-h1-p;
@@ -79,7 +83,74 @@ header {
         text-align: center;
         padding: 0 5em;
         line-height: 150%;
+        font-weight: 900;
         margin-bottom: 20px;
+        font-family: $fontFamily-Lato;
+    }
+}
+
+form {
+    @extend %flex;
+    flex-direction: column;
+    gap: 10px;
+    @extend %board;
+    h2 {
+        font-size: .5em;
+        line-height: 150%;
+        font-family: $fontFamily-Lato;
+        margin-bottom: 20px;
+    }
+    fieldset {
+        border: none;
+        @extend %flex;
+        gap: 20px;
+        div {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 50px;
+            label {
+                margin: auto 20px;
+                font-size: 2rem;
+            }
+        }
+        legend {
+            font-size: 1.8rem;
+            flex-wrap: nowrap;
+            text-align: center;
+            animation: legend 10s ease-in-out infinite .25ms;
+            @keyframes legend {
+                0%,
+                25%,
+                55%,
+                75%,
+                87%,
+                97%,
+                100% {
+                    transform: scaleX(1);
+                }
+                26%,
+                56%,
+                76% {
+                    transform: scaleX(1.3) scaleY(0.8);
+                }
+                31%,
+                61%,
+                81% {
+                    transform: scaleX(0.8) scaleY(1.2);
+                }
+                76%,
+                88% {
+                    transform: scaleX(1.2);
+                }
+                98% {
+                    transform: scaleX(1.1);
+                }
+            }
+        }
+    }
+    div {
+        font-size: 1.7em;
+        font-family: $fontFamily-Lato;
     }
 }
 
@@ -120,13 +191,82 @@ section {
         display: inline-block;
         border: 8px double #fff;
         border-radius: 50%;
-        padding: 12px;
-        margin: auto 20px;
+        margin: auto 10px;
         transition: all 0.3s ease;
+        animation: choice 2s linear infinite;
+        @keyframes choice {
+            50% {
+                transform: skewY(1deg) skewX(-1deg) scale(1.1);
+            }
+        }
         i {
             padding: 20px;
-            font-size: 2em
+            font-size: 3em;
         }
+    }
+    i:nth-child(1) {
+        transform: rotate(50deg);
+        animation: choice1 6s ease-in-out infinite;
+        @keyframes choice1 {
+            0%,
+            37%,
+            67%,
+            85%,
+            93% {
+                transform: translateY(10px);
+            }
+            4%,
+            64%,
+            88% {
+                transform: translateY(7px);
+            }
+            8%,
+            24%,
+            32%,
+            44% {
+                transform: translateY(5px);
+            }
+            12%,
+            52%,
+            60%,
+            20% {
+                transform: translateY(10px);
+            }
+            16%,
+            40% {
+                transform: translateY(5px);
+            }
+            28%,
+            56% {
+                transform: translateY(10px);
+            }
+            48%,
+            72%,
+            80%,
+            96% {
+                transform: translateY(10px);
+            }
+            76%,
+            100% {
+                transform: translateY(15px);
+            }
+        }
+    }
+    .choice:nth-child(2) {
+        transform: rotate(50deg);
+        animation: choice2 1s ease-in-out infinite, choice 2s ease-in-out infinite;
+        @keyframes choice2 {
+            0%,
+            100% {
+                transform: rotate(20deg);
+            }
+            50% {
+                transform: rotate(-20deg);
+            }
+        }
+    }
+    .choice:nth-child(3) {
+        transform: rotate(10deg);
     }
     .message {
         @extend %flex;
@@ -146,6 +286,28 @@ section {
                 }
             }
         }
+    }
+}
+
+footer {
+    min-width: 100vw;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    background-color: white;
+    color: teal;
+    p {
+        padding: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: teal;
+        &:hover {
+            color: rgb(128, 0, 0);
+        }
+    }
+    ion-icon {
+        color: rgb(128, 0, 0);
     }
 }
 

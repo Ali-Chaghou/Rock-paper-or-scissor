@@ -8,9 +8,9 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="assets/css/normalize.css">
-    <!-- <link rel="manifest" href="assets/manifest/manifest.webmanifest"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+    <link rel="manifest" href="manifest/manifest.json">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Rock Paper Scissors</title>
 </head>
@@ -21,6 +21,35 @@
         <h1>Rock, Paper, or Scissors</h1>
         <p>Ein Dampfbetriebener Bot hat dich zu einem Spiel herausgefordert. Stein schlägt Schere, Schere schlägt Papier, und Papier schlägt Stein.</p>
     </header>
+
+
+    <form>
+        <fieldset>
+            <legend>how many rounds?</legend>
+
+            <div>
+                <label>
+                <input type="radio" name="radio" value="5"> 5
+            </label>
+
+                <label>
+                <input type="radio" name="radio" value="15" > 15
+            </label>
+            </div>
+            <div>
+                <label>
+                <input type="radio" name="radio" value="10"> 10            
+            </label>
+
+                <label>
+                <input type="radio" name="radio"  value="20" > 20
+            </label>
+
+            </div>
+        </fieldset>
+        <output><span id="output1">0 </span> / <span id="output2"> 0</span></output>
+    </form>
+
 
     <!-- Scoreboard -->
     <article class="score-board" id="score-board">
@@ -50,8 +79,14 @@
             <p><a href="#" id="reset">restart</a></p>
         </div>
     </section>
-
-    <script src="assets/js/main.js" type="text/javascript"></script>
+    <footer>
+        <p>
+            Designed with
+            <ion-icon name="heart-outline"></ion-icon> by
+            <a href="https://github.com/Ali-Chaghou" target="_blank">Ali</a>
+        </p>
+    </footer>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
