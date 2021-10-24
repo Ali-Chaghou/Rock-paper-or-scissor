@@ -276,14 +276,14 @@ section {
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 40px 0 0 0;
-            a {
-                font-size: 18px;
-                text-transform: lowercase;
-                font-family: $fontFamily-Lato;
-                color: $link-color;
-                &:hover {
-                    color: $link-color-hover;
-                }
+        }
+        p:nth-child(2)a {
+            font-size: 18px;
+            text-transform: lowercase;
+            font-family: $fontFamily-Lato;
+            color: $link-color;
+            &:hover {
+                color: $link-color-hover;
             }
         }
     }

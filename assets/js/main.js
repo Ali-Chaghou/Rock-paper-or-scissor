@@ -19,6 +19,20 @@ let max = document.querySelector('#output2');
 let clicks = 0;
 let nowCount = 0;
 
+
+//Die Funktion für den Rundenzähler
+
+const round = () => {
+    fieldset.style.display = 'none';
+    for (let i = 0; i < form.length; i++)
+        if (form[i].checked) {
+            max.innerHTML = form[i].value;
+            clicks = form[i].value;
+        }
+    console.log();
+};
+form.addEventListener('click', () => round());
+
 //Die Kernfunktion für den Computer erstellt. Die math.random verwendet, um eine Schleife durch ein Array zu ziehen und den Wert zurückzugeben
 
 const computerSelection = () => {
@@ -39,7 +53,7 @@ const convertEvent = (convert) => {
     }
 }
 
-
+console.log('clicks.: ' + clicks);
 const win = (user, computer) => {
     userScore++;
     user_Score.innerHTML = userScore;
@@ -54,13 +68,38 @@ const win = (user, computer) => {
     const roundStatus = document.getElementById(user);
     roundStatus.classList.add("winningStyles");
     setTimeout(() => roundStatus.classList.remove('winningStyles'), 500);
-    if (nowCount === 5 && user_Score.innerHTML > comp_Score.innerHTML) {
+    if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML > comp_Score.innerHTML) {
+        console.log('clicks.: ' + clicks);
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `${winEmojis[randomNumberEmoji]} Super du hast nach 5 Runden Gewonnen`
-    } else if (nowCount === 10 && user_Score.innerHTML > comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML > comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users ist größer < ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `${winEmojis[randomNumberEmoji]} Super du hast nach 10 Runden Gewonnen`
-    } else if (nowCount === 15 && user_Score.innerHTML > comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML > comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `${winEmojis[randomNumberEmoji]} Super du hast nach 15 Runden Gewonnen`
-    } else if (nowCount === 20 && user_Score.innerHTML > comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML > comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `${winEmojis[randomNumberEmoji]} Super du hast nach 20 Runden Gewonnen`
     }
 
@@ -82,14 +121,37 @@ const loses = (user, computer) => {
     const roundStatus = document.getElementById(user);
     roundStatus.classList.add('losingStyles');
     setTimeout(() => roundStatus.classList.remove('losingStyles'), 500);
-    if (nowCount === 5 && user_Score.innerHTML < comp_Score.innerHTML) {
-        console.log(max.innerHTML);
+    if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML < comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `${loseEmojis[randomNumberEmoji]} Du hast leider nach 5 Runden Verloren`;
-    } else if (nowCount === 10 && user_Score.innerHTML < comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML < comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = ` ${loseEmojis[randomNumberEmoji]} Du hast leider nach 10 Runden Verloren`;
-    } else if (nowCount === 15 && user_Score.innerHTML < comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML < comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = ` ${loseEmojis[randomNumberEmoji]} Du hast leider nach 15 Runden Verloren`;
-    } else if (nowCount === 20 && user_Score.innerHTML < comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML < comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = ` ${loseEmojis[randomNumberEmoji]} Du hast leider nach 20 Runden Verloren`;
     }
 
@@ -113,13 +175,37 @@ const draw = (user, computer) => {
     setTimeout(() => roundStatus.classList.remove('drawStyles'), 500);
 
 
-    if (nowCount === 5 && user_Score.innerHTML == comp_Score.innerHTML) {
+    if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML == comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `Unentschieden nach 5 Runden ${tieEmojis[randomNumberEmoji]} `;
-    } else if (nowCount === 10 && user_Score.innerHTML == comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML == comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `Unentschieden nach 10 Runden  ${tieEmojis[randomNumberEmoji]} `;
-    } else if (nowCount === 15 && user_Score.innerHTML == comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML == comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `Unentschieden nach 15 Runden  ${tieEmojis[randomNumberEmoji]} `;
-    } else if (nowCount === 10 && user_Score.innerHTML == comp_Score.innerHTML) {
+    } else if (now.innerHTML === max.innerHTML && nowCount == clicks && user_Score.innerHTML == comp_Score.innerHTML) {
+        console.log('Die gewählte Rundenanzahl.: ' + max.innerHTML);
+        console.log('Die aktuelle Rundenanzahl.: ' + now.innerHTML);
+        console.log('Die bisher gespielte runde.:' + nowCount);
+        console.log(',wird verglichen mit.: ' + clicks);
+        console.log('Spielstand des Users.: ' + user_Score.innerHTML);
+        console.log('Spielstand des Computers.:' + comp_Score.innerHTML);
         result.innerHTML = `Unentschieden nach 20 Runden  ${tieEmojis[randomNumberEmoji]} `;
     }
 
@@ -130,44 +216,32 @@ const draw = (user, computer) => {
 
 const game = (userChoice) => {
     const computerChoice = computerSelection();
-    console.log('Game function: user choice is = ' + userChoice);
-    console.log('Game function: computer choice is = ' + computerChoice);
+    // console.log('Game function: user choice is = ' + userChoice);
+    // console.log('Game function: computer choice is = ' + computerChoice);
 
     switch (userChoice + computerChoice) {
         case 'paperrock':
         case 'rockscissors':
         case 'scissorspaper':
             win(userChoice, computerChoice);
-            console.log("user wins");
+            // console.log("user wins");
             break;
         case 'rockpaper':
         case 'scissorsrock':
         case 'paperscissors':
             loses(userChoice, computerChoice);
-            console.log("computer wins");
+            // console.log("computer wins");
             break;
         case 'rockrock':
         case 'scissorsscissors':
         case 'paperpaper':
             draw(userChoice, computerChoice);
-            console.log("draw");
+            // console.log("draw");
             break;
     }
 
 }
 
-//Die Funktion für den Rundenzähler
-
-const round = () => {
-    fieldset.style.display = 'none';
-    for (let i = 0; i < form.length; i++)
-        if (form[i].checked) {
-            max.innerHTML = form[i].value;
-            clicks = form[i].value;
-        }
-    console.log(max.innerHTML);
-};
-form.addEventListener('click', () => round());
 
 // Diese Funktion erstelle ich einen Eventlistener und füge ihn dem html-Element "Stein, Schere, Papier" hinzu und übergebe den Wert dieses Elements an die Spielfunktion
 
@@ -178,7 +252,7 @@ const main = () => {
 }
 main();
 
-// Dem Eventlistener füge ich dem html-Element span mit denn ID's user-score & computer-score zum ausgangspunkt (0) hinzu, und übergebe den Wert dieses Elements an die Spielfunktion
+
 
 resetButton.addEventListener('click', (e) => {
     e.preventDefault();
